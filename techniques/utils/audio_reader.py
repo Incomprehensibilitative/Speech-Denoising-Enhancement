@@ -17,7 +17,7 @@ Return:
 Tupple `[signal_array, frequency, no_of_samples, length]`"""
 
 import wave
-from audio_utility import mono_converter
+from .audio_utility import mono_converter
 
 def audio_read(path):
     """
