@@ -1,7 +1,7 @@
 """
 Signal Plot
 ===
-- Plot the signal in 3 forms.
+- Plot the signal in 3 forms
 ## Function:
 `signal_plot`
 ## Required Module:
@@ -10,7 +10,7 @@ Signal Plot
 - `numpy`
 """
 
-from utils.audio_reader import audio_read
+from audio_reader import audio_read
 import numpy as np
 from scipy.fft import fft
 
@@ -22,11 +22,12 @@ def signal_plot(path):
     - Plot the signal of the input file in these form:
         - Amplitide - Time
         - Spectrum - Time
-        - Frequency - Time  
+        - Frequency - Time
     """
 
     # ===== Opening a WAV File =====    
     signal = audio_read(path)
+    # signal_array must be integer ndarray
 
     # caculating the time at which each sample is taken
     times = np.linspace(0, signal[3], num=signal[2])
