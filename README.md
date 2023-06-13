@@ -11,7 +11,7 @@ GROUP 9
 - All audio files are stored in "audio_files/audio"
 - All noise files are stored in "audio_files/noise"
 - All denoised files are stored in "filtered_audio_files"
-- All plotting images are stored in "plotting_image/spectral_subtraction"
+- All plotting images are stored in "plotting_image/"
 
 ## Spectral Subtraction
 BI12-074 Đoàn Đình Đăng
