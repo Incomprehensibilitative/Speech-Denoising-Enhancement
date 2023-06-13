@@ -34,8 +34,9 @@ path = r'...\filtered_audio_files/' + 'sr.airport.wav or sr.cafe.wav or sr.rains
 wavfile.write(path, sample_rate, filtered_channel_2.astype(np.int16))
 
 # Display original and filtered audio
+# Original
 display(Audio(dis, autoplay=False))
-
+# Filtered
 display(Audio(path, autoplay=False))
 
 # Create a time array for plotting
@@ -65,7 +66,7 @@ plt.plot(filtered_channel_2, label='Filtered')
 plt.xlabel('Time')
 plt.ylabel('Amplitude')
 plt.title('Original and Filtered')
-
+# Add a legend
 plt.legend()
 
 # Show plot
