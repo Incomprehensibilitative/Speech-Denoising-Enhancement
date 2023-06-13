@@ -1,7 +1,7 @@
 ## Naming Convetion
 - For spectral_subtraction_method
     + ssm_rainstorm.wav
-    + ssm_cafe.wav
+    + ssm_restaurant.wav
     + ssm_airport.wav
 - For spectral_restoration_method
     + srm_rainstorm.wav

@@ -18,7 +18,7 @@ from scipy.io import wavfile
 import soundfile as sf
 import numpy as np
 
-def mono_converter(path):
+def mono_converter(stereo_path, mono_path):
     """
     Mono Converter
     ===
@@ -29,9 +29,9 @@ def mono_converter(path):
     Required Module:
     - `scipy`
     """
-    rate, data = wavfile.read(path)
+    rate, data = wavfile.read(stereo_path)
     data_mono = data[:,0]
-    wavfile.write(path, rate, data_mono)
+    wavfile.write(mono_path, rate, data_mono)
 
 def audio_write(path, signal_array, frames):
     """
@@ -58,6 +58,7 @@ def add_noise(audio_path, noise_path, output_path, noise_ratio):
     Function:
     ---
     - Add noise to the audio file and write it back to new file
+    - Both audio and noise file must be mono
 
     Return:
     ---
@@ -70,19 +71,17 @@ def add_noise(audio_path, noise_path, output_path, noise_ratio):
     """
     
     # Read the audio file
-    audio_rate, audio_array = wavfile.read(audio_path)
-    noise_rate, noise_array = wavfile.read(noise_path)
+    audio_array, audio_rate = sf.read(audio_path)
+
+    # Read the nosie file
+    noise_array, _ = sf.read(noise_path)
 
     # Adjust length of the noise to match the audio
     if len(noise_array) > len(audio_array):
-        noise_array = noise_array[0:len(audio_array)]
+        noise_array = noise_array[:len(audio_array)]
     else:
-        noise_array = np.pad(noise_array, (0, len(audio_array) - len(noise_array)), 'constant')
-
-    # Convert the audio and noise to float32
-    audio_array = audio_array.astype(np.float32) / 32768.0
-    noise_array = noise_array.astype(np.float32) / 32768.0
-
+        noise_array = np.pad(noise_array, (0, len(audio_array) - len(noise_array)))
+    
     # Normalize the amplitude of the audio and noise
     audio_array = audio_array / np.max(np.abs(audio_array))
     noise_array = noise_array / np.max(np.abs(noise_array))

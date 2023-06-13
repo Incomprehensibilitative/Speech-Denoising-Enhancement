@@ -2,8 +2,9 @@ import numpy as np
 
 def spectral_subtraction(audio_signal, noise_signal,frames, alpha):
 
-    # audio_signal = audio_signal.astype(np.float32) / 32768.0
-    # noise_signal = noise_signal.astype(np.float32) / 32768.0
+    # Normalize the signal
+    audio_signal = audio_signal.astype(np.float32) / 32768.0
+    noise_signal = noise_signal.astype(np.float32) / 32768.0
 
     # initialize the filtered_signal
     filtered_signal = np.zeros_like(audio_signal)
