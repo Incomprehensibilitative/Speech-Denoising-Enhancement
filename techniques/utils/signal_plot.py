@@ -10,7 +10,7 @@ Signal Plot
 - `numpy`
 """
 
-from utils.audio_reader import audio_read
+from .audio_reader import audio_read
 
 import numpy as np
 from scipy.fft import fft

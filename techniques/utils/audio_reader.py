@@ -51,8 +51,6 @@ def audio_read(path):
 
     # number of channels
     n_channels = file.getnchannels()
-    # if (n_channels == 2):
-    #     mono_converter(path)
     # print("Number of Channels: ", n_channels)
 
     # amplitude of the wave at the point in time
