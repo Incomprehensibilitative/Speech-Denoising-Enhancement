@@ -66,7 +66,11 @@ plt.plot(filtered_channel_2, label='Filtered')
 plt.xlabel('Time')
 plt.ylabel('Amplitude')
 plt.title('Original and Filtered')
+<<<<<<< Updated upstream
 # Add a legend
+=======
+# Add legend to this plot
+>>>>>>> Stashed changes
 plt.legend()
 
 # Show plot
