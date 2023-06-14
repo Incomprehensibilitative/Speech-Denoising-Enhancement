@@ -1,7 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.io.wavfile as wav
-from IPython.display import Audio
 from spectral_restoration.spectral_restoration import spectral_restoration
 
 # Load the WAV file
@@ -18,12 +17,6 @@ filtered_channel_2 = spectral_restoration(channel_1, channel_2)
 # Save the filtered data to a new WAV file
 path = r'...\filtered_audio_files/' + 'sr_airport.wav or sr_cafe.wav or sr_rainstorm.wav'
 wav.write(path, sample_rate, filtered_channel_2.astype(np.int16))
-
-# Display original and filtered audio
-# Original
-display(Audio(dis, autoplay = False))
-# Filtered
-display(Audio(path, autoplay = False))
 
 # Create a time array for plotting
 time = np.arange(len(channel_2)) / sample_rate
