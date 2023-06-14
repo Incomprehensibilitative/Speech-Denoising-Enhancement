@@ -1,51 +1,84 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.io.wavfile as wav
-from spectral_restoration.spectral_restoration import spectral_restoration
+from spectral_filtering.spectral_filtering import spectral_filtering
 
 # Load the WAV file
-sample_rate, data = wav.read('../audio_files/airport.wav or cafe.wav or rainstorm.wav')
-dis = r'...\airport.wav or cafe.wav or rainstorm.wav'
+# Airport
+sample_rate1, data1 = wav.read('../audio_files/airport.wav')
+# Cafe
+sample_rate2, data2 = wav.read('../audio_files/cafe.wav')
+# Rainstorm
+sample_rate3, data3 = wav.read('../audio_files/rainstorm.wav')
 
 # Extract the channels
-channel_1 = data[:, 0]
-channel_2 = data[:, 1]
+# Airport
+channel1_1 = data1[:, 0]
+channel1_2 = data1[:, 1]
+# Cafe
+channel2_1 = data2[:, 0]
+channel2_2 = data2[:, 1]
+# Rainstorm
+channel3_1 = data3[:, 0]
+channel3_2 = data3[:, 1]
 
-# Find filtered by spectral restoration def
-filtered_channel_2 = spectral_restoration(channel_1, channel_2)
+# Find filtered by spectral filtering def
+# Airport
+filtered_channel1_2 = spectral_filtering(channel1_1, channel1_2)
+# Cafe
+filtered_channel2_2 = spectral_filtering(channel2_1, channel2_2)
+# Rainstorm
+filtered_channel3_2 = spectral_filtering(channel3_1, channel3_2)
 
 # Save the filtered data to a new WAV file
-path = r'...\filtered_audio_files/' + 'sr_airport.wav or sr_cafe.wav or sr_rainstorm.wav'
-wav.write(path, sample_rate, filtered_channel_2.astype(np.int16))
+# Airport
+path1 = '../filtered_audio_files/' + 'sf_airport.wav'
+wav.write(path1, sample_rate1, filtered_channel1_2.astype(np.int16))
+# Cafe
+path2 = '../filtered_audio_files/' + 'sf_cafe.wav'
+wav.write(path2, sample_rate1, filtered_channel2_2.astype(np.int16))
+# Rainstorm
+path3 = '../filtered_audio_files/' + 'sf_rainstorm.wav'
+wav.write(path3, sample_rate1, filtered_channel3_2.astype(np.int16))
 
 # Create a time array for plotting
-time = np.arange(len(channel_2)) / sample_rate
+time = np.arange(len(channel1_2)) / sample_rate1
 
-# Create figure for plotting
-plt.figure(figsize=(18, 15))
+# Def for each audio = each figure 
+def plot(channel, filtered_channel, a):
+    # Create figure for plotting
+    plt.figure(num=a, figsize=(15, 10))
 
-# Plot the original signal
-plt.subplot(4, 1, 1)
-plt.plot(channel_2)
-plt.xlabel('Time')
-plt.ylabel('Amplitude')
-plt.title('Original')
+    # Plot the original signal
+    plt.subplot(3, 1, 1)
+    plt.plot(channel)
+    plt.xlabel('Time')
+    plt.ylabel('Amplitude')
+    plt.title('Original')
 
-# Plot the filtered signal
-plt.subplot(4, 1, 2)
-plt.plot(filtered_channel_2)
-plt.xlabel('Time')
-plt.ylabel('Amplitude')
-plt.title('Filtered')
+    # Plot the filtered signal
+    plt.subplot(3, 1, 2)
+    plt.plot(filtered_channel)
+    plt.xlabel('Time')
+    plt.ylabel('Amplitude')
+    plt.title('Filtered')
 
-# Plot both original and filtered signal
-plt.subplot(4, 1, 3)
-plt.plot(channel_2, label = 'Original')
-plt.plot(filtered_channel_2, label = 'Filtered')
+    # Plot both original and filtered signal
+    plt.subplot(3, 1, 3)
+    plt.plot(channel, label='Original')
+    plt.plot(filtered_channel, label='Filtered')
+    plt.xlabel('Time')
+    plt.ylabel('Amplitude')
+    plt.title('Original and Filtered')
+    plt.legend()
 
-plt.xlabel('Time')
-plt.ylabel('Amplitude')
-plt.title('Original and Filtered')
+    # Show plot
+    plt.show()
+    # Close figure
+    plt.close()
 
-# Show plot
-plt.show()
+
+# Plotting all
+plot(channel1_2, filtered_channel1_2, 'Airport')   # Airport
+plot(channel2_2, filtered_channel2_2, 'Cafe')      # Cafe
+plot(channel3_2, filtered_channel3_2, 'Rainstorm') # Rainstorm
