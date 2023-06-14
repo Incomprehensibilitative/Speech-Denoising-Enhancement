@@ -34,6 +34,7 @@ def apply_wiener_filter(input_file, output_file):
     wavfile.write(output_file, sample_rate, filtered_data.astype(np.int16))
 
     # Plot the original and filtered signals in the time domain
+    plt.figure(figsize=(9, 6))
     time = np.arange(len(channel_2)) / sample_rate
     plt.plot(time, channel_2, label='Original')
     plt.plot(time, filtered_channel_2, label='Filtered')
@@ -53,6 +54,7 @@ def apply_wiener_filter(input_file, output_file):
     fft_filtered_channel_2 = np.fft.fft(filtered_channel_2)
 
     # Plot the original and filtered signals in the frequency domain
+    plt.figure(figsize=(9, 6))
     freq = np.fft.fftfreq(len(channel_2), d=1 / sample_rate)
     plt.plot(freq, np.abs(fft_channel_2), label='Original')
     plt.plot(freq, np.abs(fft_filtered_channel_2), label='Filtered')
