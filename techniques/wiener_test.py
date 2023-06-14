@@ -1,9 +1,8 @@
 from wiener.wiener_filtering import apply_wiener_filter
 # List all WAV files in the folder
-input_files = '../../audio_files/audio/airport.wav', '../../audio_files/audio/cafe.wav', '../../audio_files/audio' \
-                                                                                         '/rainstorm.wav'
+input_files = '../audio_files/airport.wav', '../audio_files/cafe.wav', '../audio_files/rainstorm.wav'
 # Specify the output folder path
-output_dir = '../../filtered_audio_files/'
+output_dir = '../filtered_audio_files/'
 
 # Process each input file
 for input_file in input_files:

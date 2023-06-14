@@ -4,7 +4,7 @@ import scipy.io.wavfile as wav
 from spectral_restoration.spectral_restoration import spectral_restoration
 
 # Load the WAV file
-sample_rate, data = wav.read(r'...\audio_files\airport.wav or cafe.wav or rainstorm.wav')
+sample_rate, data = wav.read('../audio_files/airport.wav or cafe.wav or rainstorm.wav')
 dis = r'...\airport.wav or cafe.wav or rainstorm.wav'
 
 # Extract the channels
