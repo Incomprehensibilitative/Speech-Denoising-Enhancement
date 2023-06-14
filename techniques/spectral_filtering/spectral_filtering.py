@@ -1,6 +1,6 @@
 import numpy as np
 
-def spectral_restoration(channel_1, channel_2):
+def spectral_filtering(channel_1, channel_2):
     # Compute the FFT of signal
     fhat = np.fft.fft(channel_2)
 
@@ -19,6 +19,6 @@ def spectral_restoration(channel_1, channel_2):
     fhat = indices * fhat
 
     # Inverse FFT for filtered time signal
-    spectral_restoration = np.fft.ifft(fhat)
+    spectral_filtering = np.fft.ifft(fhat)
 
-    return spectral_restoration
+    return spectral_filtering
