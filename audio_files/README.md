@@ -1,0 +1,2 @@
+- The folders audio/ noise/ noisy_audio/ are used specifically during the testing of Spectral Subtraction Method
+- The audio files airport.wav cafe.wav rainstorm.wav are used to test the other techniques
