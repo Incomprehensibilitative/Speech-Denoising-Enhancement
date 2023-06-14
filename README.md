@@ -28,7 +28,7 @@ Run "spectral_subtraction_method.py" will do these task:
 
 1. Get **audio file** from "audio_files/audio/" and add 3 **noises** form 3 files in "audio_files/noise" then return the **noisy files** in folder "audio_files/noisy_audio".
 
-2. Read the **oisy files** in "audio_files/noisy_audio/" and start denoising using "Spectral Subtraction" techniques -> Return **filtered signal_array**.
+2. Read the **noisy files** in "audio_files/noisy_audio/" and start denoising using "Spectral Subtraction" techniques -> Return **filtered signal_array**.
 
 3. Write the **filtered signal_array** to new files and store in folder "filtered_audio_files" in this form "ssm_*file_name*.wav".
 

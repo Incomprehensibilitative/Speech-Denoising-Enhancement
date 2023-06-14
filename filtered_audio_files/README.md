@@ -3,10 +3,10 @@
     + ssm_rainstorm.wav
     + ssm_restaurant.wav
     + ssm_airport.wav
-- For spectral_restoration_method
-    + sr_rainstorm.wav
-    + sr_cafe.wav
-    + sr_airport.wav
+- For spectral_filtering_method
+    + sf_rainstorm.wav
+    + sf_cafe.wav
+    + sf_airport.wav
 - For wiener_filtering
     + wf_rainstorm.wav
     + wf_cafe.wav
