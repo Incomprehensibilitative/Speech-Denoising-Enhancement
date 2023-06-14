@@ -8,10 +8,12 @@ GROUP 9
 
 # Denoising Techniques
 - All techniques are stored in the folder "techniques"
-- All audio files are stored in "audio_files/audio"
+- All original audio files are stored in "audio_files"
+- All clean audio files are stored in "audio_files/audio"
 - All noise files are stored in "audio_files/noise"
+- All noisy files are stored in "audio_files/noisy_audio"
 - All denoised files are stored in "filtered_audio_files"
-- All plotting images are stored in "plotting_image/"
+- All plotting images are stored in "plotting_image"
 
 ## Spectral Subtraction
 BI12-074 Đoàn Đình Đăng
@@ -28,7 +30,7 @@ Run "spectral_subtraction_method.py" will do these task:
 
 2. Read the **oisy files** in "audio_files/noisy_audio/" and start denoising using "Spectral Subtraction" techniques -> Return **filtered signal_array**.
 
-3. Write the **filtered signal_array** to new files and store in forlder "filtered_audio_files" in this form "ssm_*file_name*.wav".
+3. Write the **filtered signal_array** to new files and store in folder "filtered_audio_files" in this form "ssm_*file_name*.wav".
 
 ### Plotting
 Run "spectral_subtraction_plot.py" will do these task:
@@ -39,3 +41,4 @@ Run "spectral_subtraction_plot.py" will do these task:
     - Amplitude - Time
     - Frequency - Time
     - Spectrum - Time
+
