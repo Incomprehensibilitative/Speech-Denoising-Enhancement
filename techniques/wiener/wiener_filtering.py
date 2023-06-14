@@ -43,12 +43,6 @@ def apply_wiener_filter(input_file, output_file):
     plt.title('Original vs Filtered Signal (Time Domain)')
     plt.legend()
 
-    # Show the plot
-    plt.show()
-
-    # Clear the figure
-    plt.clf()
-
     # Perform FFT on the signals
     fft_channel_2 = np.fft.fft(channel_2)
     fft_filtered_channel_2 = np.fft.fft(filtered_channel_2)
