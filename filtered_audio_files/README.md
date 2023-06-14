@@ -4,9 +4,9 @@
     + ssm_restaurant.wav
     + ssm_airport.wav
 - For spectral_restoration_method
-    + srm_rainstorm.wav
-    + srm_cafe.wav
-    + srm_airport.wav
+    + sr_rainstorm.wav
+    + sr_cafe.wav
+    + sr_airport.wav
 - For wiener_filtering
     + wf_rainstorm.wav
     + wf_cafe.wav
